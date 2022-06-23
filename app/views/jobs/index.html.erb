@@ -1,0 +1,17 @@
+<h1>Rails app quiz!!</h1>
+<table>
+    <% @jobs.each do |job| %>
+        <tr>
+            <td><%= job.url %><td>
+            <td><%= job.employer_name %><td>
+            <td><%= job.employer_description %><td>
+            <td><%= job.job_title %><td>
+            <td><%= job.job_description %><td>
+            <td><%= job.year_of_experience %><td>
+            <td><%= job.education_requirement %><td>
+            <td><%= job.industry %><td>
+            <td><%= job.base_salary %><td>
+            <td><%= job.employment_type_id %><td>
+        </tr>
+    <% end %>
+</table>

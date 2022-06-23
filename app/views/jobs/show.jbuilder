@@ -1,2 +1,0 @@
-json.jobs do
-end

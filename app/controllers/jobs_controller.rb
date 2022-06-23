@@ -1,7 +1,6 @@
 class JobsController < ApplicationController
     def index 
-        jobs = Job.all 
-        render json: jobs
+        @jobs = Job.all 
     end
 
     def create
@@ -15,13 +14,17 @@ class JobsController < ApplicationController
         base_salary: params[:base_salary],
         employment_type_id: params[:employment_type_id])
 
-        render 'jobs/create.jbuilder'
+        if @job.save
+            render json: @job, status: :created
+        else
+            render json: @job.errors, status: :unproccessable_entity
+        end
     end
 
     def show
         @job = Job.find_by(id: params[:id])
         if @job
-            render 'jobs/show.jbuilder'
+            render 'jobs/show'
         else 
             render json: {error: 'Job Not Found.'}
         end
