@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   
-    get '/', to: 'static_pages#index'
+    get '/', to: 'jobs#index'
 
     get '/jobs/:id', to: 'jobs#show'
 
